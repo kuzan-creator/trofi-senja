@@ -4,33 +4,32 @@
 
 # Sunset Trophy Guide — GTA 6 Platinum Tracker
 
-An offline guide and tracker for all **55 Grand Theft Auto VI (PS5) trophies**: the official names, descriptions and grades, a checklist saved in your browser, a roadmap to the platinum, and a guide to every trophy in my own words, with its sources cited.
+Panduan platinum **Grand Theft Auto VI (PS5)** yang jalan offline di browser desktop: checklist 55 trofi resmi, panduan tiap trofi, roadmap ke platinum, halaman missables, penghitung PSN, dan halaman disputes — semua dengan sumber dikutip.
 
-Built for [make.fun — Build the best GTA 6 trophy guide](https://make.fun/bounty/gta6-trophy-guide-01).
-
-## Run offline
+## Jalankan offline
 
 ```sh
-node serve.ts --port 8084
-# open http://localhost:8084
+node serve.ts
+# buka http://localhost:8080
 ```
 
-No build step, no network requests at run time. All progress is stored in `localStorage` on your device.
+Tanpa build, tanpa jaringan saat dipakai. Semua data tersimpan di `localStorage` di perangkatmu.
 
-## What is inside
+## Isi
 
-- **55 official trophies** — exact name, description and grade (1 platinum, 2 gold, 6 silver, 46 bronze, 28 hidden), in `app/data/trophies.json`. Every trophy's `guide` is a single text string.
-- **A guide for every trophy, in my own words** — what to do, where, and when it can be missed. Each trophy lists its sources (the official list on Exophase for name, description and grade; PSNProfiles for PSN count targets). Where a place or step has not been checked in-game yet, the guide says so plainly — no location is guessed.
-- **Checklist that saves** — tick trophies as you earn them, export your progress as JSON and import it back.
-- **Spoiler Shield** — story trophy names and descriptions stay hidden until you earn them (toggle with `s`).
-- **Filters and search** — by grade, kind (story, missable, collection, activity, exploration, combat, money), status, and text.
-- **Roadmap to Platinum** — the chapters in mission order, progress per chapter, and a **Next Up** planner (the next 5 unearned trophies).
-- **Missables** — 21 trophies that can be missed, a missable box on every trophy detail, and 5 points of no return in chapter order.
-- **PSN count trackers** — for trophies PSN tracks with a count (250 stunts, 42 shooting range, 14 drone races, 20 races, 8 stranger strands, 18 meditation spots, 3 card sets, 100 WAiNK, 50 challenges, 100 vehicles, 5 bank vaults, 52 areas, 500 choices).
-- **Notes per trophy** — saved with your progress.
-- **Keyboard shortcuts** — `/` search, `1` checklist, `2` roadmap, `3` missables, `s` spoiler shield, `e` export.
-- **Audit strip** — the number of cited claims shown at the top of the page, with a breakdown of the sources.
+- **55 trofi resmi** — nama, deskripsi, dan grade persis dari daftar resmi (1 platinum, 2 emas, 6 perak, 46 perunggu, 28 tersembunyi), di `app/data/trophies.json`.
+- **Panduan tiap trofi dengan kata-kata sendiri** — satu teks per trofi: apa yang harus dilakukan, kapan, dan apakah bisa terlewat. Setiap trofi mencantumkan sumbernya (daftar resmi di Exophase untuk nama-deskripsi-grade, PSNProfiles untuk grade/hidden flag dan target hitungan PSN). Kalau sebuah lokasi atau langkah belum dicek di dalam game, panduan menuliskannya jelas — tidak ada lokasi yang ditebak.
+- **607 klaim dikutip, 4 situs sumber** — audit strip di atas halaman menunjukkan hitungannya: 55 nama, 55 deskripsi, 55 grade, 55 panduan, 55 kotak missable, 55 bab, 55 jenis, 55 flag tersembunyi, 126 sumber, 16 target hitungan, 5 titik tanpa jalan kembali, 6 bab roadmap, 14 sumber dispute. Situs sumber: Exophase, PSNProfiles, PlayStation (skema grade), dan Rockstar Games (game & platform).
+- **Checklist tersimpan** — centang trofi yang sudah didapat, ekspor/impor progres sebagai JSON.
+- **Spoiler Shield** — nama & deskripsi trofi cerita tersembunyi sampai trofi itu didapat (bisa dimatikan, pintasan `s`).
+- **Filter & cari** — menurut grade, jenis (cerita, aktivitas, koleksi, penjelajahan, tempur, kejahatan, uang, penyelesaian), status, dan teks.
+- **Roadmap ke Platinum** — urutan bab/misi, kemajuan per bab, dan perencana **Next Up** (5 trofi berikutnya).
+- **Missables** — 21 trofi yang bisa terlewat, kotak missable di setiap detail trofi, dan 5 titik tanpa jalan kembali dalam urutan bab.
+- **Penghitung PSN** — untuk trofi yang dilacak PSN dengan hitungan, misalnya 250 stunt, 42 shooting range, 100 kendaraan, 100 WAiNK, 18 titik meditasi, 14 balapan drone, 20 balapan, 50 tantangan, 52 area, 8 rangkaian orang asing, 3 set kartu, 5 brankas bank, 500 pilihan, 9 geng, 8 garasi, 10 kendaraan terdaftar.
+- **Disputes — 7 perbedaan sumber** — halaman jujur tentang klaim yang sumbernya berbeda atau belum pasti: daftar missable (tidak ada daftar resmi), flag tersembunyi (Exophase vs PSNProfiles), target hitungan PSN, jumlah tipe aktivitas, trigger trofi yang samar, dan isi 100% completion. Tiap dispute mencantumkan dua sumber yang berbeda dan statusnya.
+- **Catatan per trofi** — tersimpan bersama progresmu.
+- **Pintasan keyboard** — `/` cari, `1` checklist, `2` roadmap, `3` missables, `4` disputes, `s` spoiler, `e` ekspor.
 
 ## Bounty
 
-Built for [make.fun — Build the best GTA 6 trophy guide](https://make.fun/bounty/gta6-trophy-guide-01).
+Dibuat untuk [make.fun — Build the best GTA 6 trophy guide](https://make.fun/bounty/gta6-trophy-guide-01).

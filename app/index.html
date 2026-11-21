@@ -3,85 +3,113 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='13' font-size='13'>&#127942;</text></svg>">
 <title>Sunset Trophy Guide — GTA 6 Platinum Tracker</title>
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><circle cx='8' cy='8' r='7' fill='%23ff7a59'/></svg>">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="top">
-  <div class="brand">
+<header class="hero">
+  <div class="hero-left">
+    <div class="kicker">GRAND THEFT AUTO VI &middot; PLAYSTATION 5 &middot; OFFLINE GUIDE</div>
     <h1>Sunset Trophy Guide</h1>
-    <p class="sub">GTA 6 Platinum Tracker &middot; Grand Theft Auto VI &middot; PlayStation 5 &middot; 55 trophies</p>
+    <p class="subtitle">GTA 6 Platinum Tracker &mdash; every one of the 55 official trophies, with its own guide and sources.</p>
   </div>
-  <div class="progress" id="progressBox">
-    <div class="progress-num"><span id="earnedCount">0</span>/55 &middot; <span id="earnedPct">0%</span></div>
-    <div class="bar"><div class="fill" id="progressFill" style="width:0%"></div></div>
-    <div class="progress-sub" id="gradeCounts"></div>
+  <div class="hero-right">
+    <div class="big-progress"><span id="earnedBig">0</span><span class="of">/ 55</span></div>
+    <div class="pct" id="pctBig">0% to Platinum</div>
+    <div class="points" id="pointsBig">0 trophy points</div>
+    <div class="bar"><div class="bar-fill" id="barFill"></div></div>
   </div>
 </header>
-<div class="audit" id="auditStrip">Loading audit&hellip;</div>
-<nav class="tabs" role="tablist">
-  <button data-tab="checklist" class="active" role="tab">1 &middot; Checklist</button>
-  <button data-tab="roadmap" role="tab">2 &middot; Roadmap</button>
-  <button data-tab="missables" role="tab">3 &middot; Missables</button>
-  <span class="keys">Keys: <kbd>/</kbd> search &middot; <kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd> tabs &middot; <kbd>s</kbd> Spoiler Shield &middot; <kbd>e</kbd> export</span>
-</nav>
-<section class="controls">
-  <input id="search" type="search" placeholder="Search trophies, missions, guides&hellip;  ( / )" aria-label="Search trophies">
+
+<section class="audit" id="auditStrip" aria-label="Cited claims">
+  <strong id="auditTotal">0 CLAIMS CITED</strong>
+  <span id="auditDetail"></span>
+</section>
+
+<nav class="toolbar">
+  <input id="search" type="search" placeholder="Search trophies by name or guide&hellip;  ( / )" aria-label="Search trophies">
   <select id="gradeFilter" aria-label="Filter by grade">
     <option value="">All grades</option>
-    <option value="platinum">Platinum</option>
-    <option value="gold">Gold</option>
-    <option value="silver">Silver</option>
-    <option value="bronze">Bronze</option>
+    <option value="platinum">Platinum (1)</option>
+    <option value="gold">Gold (2)</option>
+    <option value="silver">Silver (6)</option>
+    <option value="bronze">Bronze (46)</option>
   </select>
   <select id="kindFilter" aria-label="Filter by kind">
     <option value="">All kinds</option>
-    <option value="platinum">Platinum</option>
     <option value="story">Story</option>
-    <option value="missable">Missable</option>
-    <option value="collection">Collection</option>
     <option value="activity">Activity</option>
+    <option value="collectible">Collectible</option>
     <option value="exploration">Exploration</option>
     <option value="combat">Combat</option>
+    <option value="crime">Crime</option>
     <option value="money">Money</option>
+    <option value="completion">Completion</option>
+    <option value="misc">Misc</option>
+    <option value="platinum">Platinum</option>
   </select>
   <select id="statusFilter" aria-label="Filter by status">
     <option value="">All trophies</option>
-    <option value="earned">Earned</option>
+    <option value="earned">Earned only</option>
     <option value="unearned">Not earned yet</option>
-    <option value="hidden">Hidden</option>
+    <option value="missable">Missable only</option>
   </select>
-  <label class="shield"><input type="checkbox" id="spoilerToggle" checked> Spoiler Shield</label>
-  <button id="exportBtn" type="button">Export</button>
-  <button id="importBtn" type="button">Import</button>
-  <input type="file" id="importFile" accept="application/json" hidden>
-</section>
-<main class="layout">
-  <div class="pane list-pane">
-    <section id="view-checklist" class="view active">
-      <h2>Checklist <span id="listCount"></span></h2>
-      <ol id="trophyList" class="trophy-list"></ol>
-    </section>
-    <section id="view-roadmap" class="view">
-      <h2>Roadmap to Platinum</h2>
-      <div id="nextUp" class="nextup"></div>
-      <div id="roadmap"></div>
-    </section>
-    <section id="view-missables" class="view">
-      <h2>Missable trophies <span id="missableCount"></span></h2>
-      <p class="hint">Do these before their point of no return — once a chapter closes, the mission or moment is gone for this playthrough.</p>
-      <div id="pointsNoReturn"></div>
-      <ol id="missableList" class="trophy-list"></ol>
-    </section>
-  </div>
-  <aside class="pane detail-pane" id="detailPane" aria-live="polite">
-    <p class="hint">Select a trophy to see its guide, sources, PSN counter and notes.</p>
-  </aside>
+  <button id="spoilerBtn" class="toggle on" type="button" aria-pressed="true">Spoiler Shield: ON (s)</button>
+  <button id="exportBtn" type="button">Export (e)</button>
+  <label class="import-label" for="importFile">Import</label>
+  <input id="importFile" type="file" accept="application/json" hidden>
+</nav>
+
+<nav class="tabs" role="tablist">
+  <button class="tab active" data-view="checklist" type="button" role="tab">1 &middot; Checklist</button>
+  <button class="tab" data-view="roadmap" type="button" role="tab">2 &middot; Roadmap to Platinum</button>
+  <button class="tab" data-view="missables" type="button" role="tab">3 &middot; Missables &middot; 21</button>
+  <button class="tab" data-view="disputes" type="button" role="tab">4 &middot; Disputes &middot; 7</button>
+</nav>
+
+<main>
+  <section id="view-checklist" class="view">
+    <div class="panes">
+      <div class="list-pane">
+        <div class="list-head"><span id="listCount">55 trophies</span><span id="listEarned">0 earned</span></div>
+        <ul id="trophyList" class="trophy-list"></ul>
+      </div>
+      <aside class="detail-pane" id="detailPane" aria-live="polite"></aside>
+    </div>
+  </section>
+
+  <section id="view-roadmap" class="view hidden">
+    <h2>Roadmap to Platinum</h2>
+    <p class="lead">Play the story in chapter order, do the missables as you reach them, then clean up the free-roam trophies. Next Up is your next 5 unearned trophies in that order.</p>
+    <h3>Next Up &mdash; your next 5</h3>
+    <ol id="nextUp" class="nextup"></ol>
+    <h3>Chapters</h3>
+    <div id="roadmapChapters" class="chapters"></div>
+  </section>
+
+  <section id="view-missables" class="view hidden">
+    <h2>Missable trophies &mdash; 21 to watch</h2>
+    <p class="lead">These 21 trophies can be missed if the story or a one-time setup moves on. Do them the first time they appear. Anything not yet checked in-game is marked so in each guide.</p>
+    <h3>Points of no return &mdash; in chapter order</h3>
+    <ol id="pointsList" class="points-list"></ol>
+    <h3>All 21 missables</h3>
+    <ul id="missableList" class="trophy-list wide"></ul>
+  </section>
+
+  <section id="view-disputes" class="view hidden">
+    <h2>Disputes &mdash; where the sources disagree or stay silent</h2>
+    <p class="lead">An honest guide says where it is not sure. Each dispute below names the two sources that differ and its status. Nothing here is presented as confirmed when it is not.</p>
+    <div id="disputeList" class="disputes"></div>
+    <h3>Source sites used in this guide</h3>
+    <ul id="siteList" class="sites"></ul>
+  </section>
 </main>
+
 <footer>
-  <p>Sources: the official trophy list on Exophase for every name, description and grade; PSNProfiles for PSN count targets. Guides are written in my own words. Places and steps not yet checked in-game are marked &ldquo;belum dicek di dalam game&rdquo;. No Rockstar logo or official artwork. Works offline. Built for the <a href="https://make.fun/bounty/gta6-trophy-guide-01">make.fun GTA 6 trophy guide bounty</a>.</p>
+  <p>Sunset Trophy Guide — an offline guide. Trophy names, descriptions and grades are the official list (Exophase / PSNProfiles); the grade scheme is PlayStation's trophy system and the game is Grand Theft Auto VI by Rockstar Games. Guides are written in our own words; anything not yet checked in-game is marked &ldquo;belum dicek di dalam game&rdquo;. No Rockstar logo or official artwork. Progress is saved only in this browser (localStorage). Bounty: <a href="https://make.fun/bounty/gta6-trophy-guide-01">make.fun — Build the best GTA 6 trophy guide</a>.</p>
 </footer>
+
 <script src="app.js"></script>
 </body>
 </html>
