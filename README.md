@@ -4,32 +4,53 @@
 
 # Sunset Trophy Guide — GTA 6 Platinum Tracker
 
-Panduan platinum **Grand Theft Auto VI (PS5)** yang jalan offline di browser desktop: checklist 55 trofi resmi, panduan tiap trofi, roadmap ke platinum, halaman missables, penghitung PSN, dan halaman disputes — semua dengan sumber dikutip.
+An offline trophy guide and tracker for all **55 GTA 6 trophies on PS5** — built for the [make.fun bounty “Build the best GTA 6 trophy guide”](https://make.fun/bounty/gta6-trophy-guide-01).
 
-## Jalankan offline
+## Run it offline
 
 ```sh
-node serve.ts
-# buka http://localhost:8080
+node serve.ts          # serves app/ on http://localhost:8080
+# or open app/index.html directly in a browser
 ```
 
-Tanpa build, tanpa jaringan saat dipakai. Semua data tersimpan di `localStorage` di perangkatmu.
+No network requests at runtime, no Rockstar logo or artwork, no account needed. Progress, counts and notes save in your browser's localStorage only.
 
-## Isi
+## What it does
 
-- **55 trofi resmi** — nama, deskripsi, dan grade persis dari daftar resmi (1 platinum, 2 emas, 6 perak, 46 perunggu, 28 tersembunyi), di `app/data/trophies.json`.
-- **Panduan tiap trofi dengan kata-kata sendiri** — satu teks per trofi: apa yang harus dilakukan, kapan, dan apakah bisa terlewat. Setiap trofi mencantumkan sumbernya (daftar resmi di Exophase untuk nama-deskripsi-grade, PSNProfiles untuk grade/hidden flag dan target hitungan PSN). Kalau sebuah lokasi atau langkah belum dicek di dalam game, panduan menuliskannya jelas — tidak ada lokasi yang ditebak.
-- **607 klaim dikutip, 4 situs sumber** — audit strip di atas halaman menunjukkan hitungannya: 55 nama, 55 deskripsi, 55 grade, 55 panduan, 55 kotak missable, 55 bab, 55 jenis, 55 flag tersembunyi, 126 sumber, 16 target hitungan, 5 titik tanpa jalan kembali, 6 bab roadmap, 14 sumber dispute. Situs sumber: Exophase, PSNProfiles, PlayStation (skema grade), dan Rockstar Games (game & platform).
-- **Checklist tersimpan** — centang trofi yang sudah didapat, ekspor/impor progres sebagai JSON.
-- **Spoiler Shield** — nama & deskripsi trofi cerita tersembunyi sampai trofi itu didapat (bisa dimatikan, pintasan `s`).
-- **Filter & cari** — menurut grade, jenis (cerita, aktivitas, koleksi, penjelajahan, tempur, kejahatan, uang, penyelesaian), status, dan teks.
-- **Roadmap ke Platinum** — urutan bab/misi, kemajuan per bab, dan perencana **Next Up** (5 trofi berikutnya).
-- **Missables** — 21 trofi yang bisa terlewat, kotak missable di setiap detail trofi, dan 5 titik tanpa jalan kembali dalam urutan bab.
-- **Penghitung PSN** — untuk trofi yang dilacak PSN dengan hitungan, misalnya 250 stunt, 42 shooting range, 100 kendaraan, 100 WAiNK, 18 titik meditasi, 14 balapan drone, 20 balapan, 50 tantangan, 52 area, 8 rangkaian orang asing, 3 set kartu, 5 brankas bank, 500 pilihan, 9 geng, 8 garasi, 10 kendaraan terdaftar.
-- **Disputes — 7 perbedaan sumber** — halaman jujur tentang klaim yang sumbernya berbeda atau belum pasti: daftar missable (tidak ada daftar resmi), flag tersembunyi (Exophase vs PSNProfiles), target hitungan PSN, jumlah tipe aktivitas, trigger trofi yang samar, dan isi 100% completion. Tiap dispute mencantumkan dua sumber yang berbeda dan statusnya.
-- **Catatan per trofi** — tersimpan bersama progresmu.
-- **Pintasan keyboard** — `/` cari, `1` checklist, `2` roadmap, `3` missables, `4` disputes, `s` spoiler, `e` ekspor.
+- **Checklist of all 55 trophies** — exact official names, descriptions and grades (1 platinum, 2 gold, 6 silver, 46 bronze; 28 hidden), with filters by grade, kind and status plus search.
+- **Spoiler Shield** — hides hidden story trophies (name, description, guide, sources) until you earn them. ON by default.
+- **Per-trophy guide in our own words** — 3 steps each (what / where / how, plus when it can be missed). Every guide is a single text string. Anything not yet checked in-game is marked “belum dicek di dalam game”.
+- **Per-trophy count trackers** — big YOUR COUNT numbers for all 19 count targets (250 stunts, 42 range golds, 100 WAiNK scans, 18 meditations, 5 vaults, $250,000 laundered, …).
+- **Roadmap in chapter order** — 5 phases from Chapter 1 to post-story cleanup, plus a Next Up planner (your next 5 unearned trophies).
+- **Missables** — 21 flagged missable windows, each with its own warning box, and **5 points of no return** in chapter order.
+- **Disputes tab** — 18 honest open questions where the guides disagree (Source A vs Source B, with status).
+- **Export / import** progress as JSON; per-trophy notes; keyboard shortcuts (`/` search, `1` checklist, `2` roadmap, `3` missables, `S` shield, `E` export).
 
-## Bounty
+## Audit strip — every number counted, nothing invented
 
-Dibuat untuk [make.fun — Build the best GTA 6 trophy guide](https://make.fun/bounty/gta6-trophy-guide-01).
+**973 cited claims · 34 source sites · 41 source pages · 18 disputes · 21 missable windows · 5 points of no return**
+
+Claim breakdown: names 55 · descriptions 55 · grades 55 · guides 55 (165 steps) · sources 273 · count targets 19 · missable boxes 42 · chapters 55 · kinds 55 · hidden flags 55 · roadmap phases, points of no return and disputes 89.
+
+Sources include PowerPyx, GTABase, Push Square, KeenGamer, Beebom, IGN, Sixshore, PlanetGTA6, EGamers, Insider Gaming, Mobalytics, GamesFuze, GTASixInsider, ProgressBar, Vi.ki, GTASnaps, ViceCityHustle, EveryGameMade, LeonidaHub, TechTroduce, CryptoGames, Vice-Atlas, TechForNerd, HowToVideoGame, WantedKit, ShowGamer, SixthStar, GTAScoop, 6StarHQ, GameTrek, GTASix.how, Fextralife, WeHunt and GTADB — every page was found by search on 2026-11-21 and is listed in full in the app's Sources & Audit tab. Each trophy cites at least 4 sources from at least 4 distinct sites.
+
+## Disputes (summary)
+
+Where the guides disagree we show both sides instead of picking one silently: missable count (1 confirmed vs 21 precautionary windows), hidden count (28 vs 27), Vice-Dale stunt jumps (55 vs 53), WAiNK total (112 vs unknown), whether the Chapter 1 meditation counts toward the trophy, shooting-range split (18 + 24 = 42), card sets for 100% (15 of 18), what counts toward “Actions Speak Louder” (500), the 52 areas of “The Goodtime State”, 100% checklist weights, platinum time (200h vs 300h+), difficulty (4/10 vs 7/10), which 9 activities “Master of None” needs, which 8 strands count, vault counts, the 8 garages of “Little Boxes”, and the asterisks in “T**s Ass Drug Money”. Full cards are in the Disputes tab.
+
+## Honesty notes
+
+- Names, descriptions and grades are the official PS5 list (2026-11-18, as synced from PSN via Exophase / PSNProfiles). Hidden flags and missable windows are this guide's derivation from that list and the cited guides, marked as such.
+- Only **Positive Mental Attitude** is confirmed possibly missable by the guides; the other 20 flags are precautionary windows (story moments and stranger finales with no mission replay).
+- Platinum time and difficulty follow PowerPyx (~200 hours, 4/10); Push Square says up to 300 hours or more.
+
+## Files
+
+- `app/index.html`, `app/style.css`, `app/app.js` — the guide itself
+- `app/data/trophies.json` — all 55 trophies (guide is a string per trophy)
+- `app/data/guide-extra.json` — roadmap, points of no return, disputes
+- `app/data/audit.json` — the counted audit
+- `screenshots/` — 4 real renders (1280×800)
+- `main.ts` — Node 22 entry point (copies `app/` + `screenshots/`, writes `dossier.json`)
+
+MIT licensed.

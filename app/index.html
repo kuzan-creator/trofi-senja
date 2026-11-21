@@ -3,113 +3,46 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'><text y='13' font-size='13'>&#127942;</text></svg>">
 <title>Sunset Trophy Guide — GTA 6 Platinum Tracker</title>
+<link rel="icon" href="data:,">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header class="hero">
-  <div class="hero-left">
-    <div class="kicker">GRAND THEFT AUTO VI &middot; PLAYSTATION 5 &middot; OFFLINE GUIDE</div>
-    <h1>Sunset Trophy Guide</h1>
-    <p class="subtitle">GTA 6 Platinum Tracker &mdash; every one of the 55 official trophies, with its own guide and sources.</p>
-  </div>
-  <div class="hero-right">
-    <div class="big-progress"><span id="earnedBig">0</span><span class="of">/ 55</span></div>
-    <div class="pct" id="pctBig">0% to Platinum</div>
-    <div class="points" id="pointsBig">0 trophy points</div>
-    <div class="bar"><div class="bar-fill" id="barFill"></div></div>
-  </div>
-</header>
-
-<section class="audit" id="auditStrip" aria-label="Cited claims">
-  <strong id="auditTotal">0 CLAIMS CITED</strong>
-  <span id="auditDetail"></span>
-</section>
-
-<nav class="toolbar">
-  <input id="search" type="search" placeholder="Search trophies by name or guide&hellip;  ( / )" aria-label="Search trophies">
-  <select id="gradeFilter" aria-label="Filter by grade">
-    <option value="">All grades</option>
-    <option value="platinum">Platinum (1)</option>
-    <option value="gold">Gold (2)</option>
-    <option value="silver">Silver (6)</option>
-    <option value="bronze">Bronze (46)</option>
-  </select>
-  <select id="kindFilter" aria-label="Filter by kind">
-    <option value="">All kinds</option>
-    <option value="story">Story</option>
-    <option value="activity">Activity</option>
-    <option value="collectible">Collectible</option>
-    <option value="exploration">Exploration</option>
-    <option value="combat">Combat</option>
-    <option value="crime">Crime</option>
-    <option value="money">Money</option>
-    <option value="completion">Completion</option>
-    <option value="misc">Misc</option>
-    <option value="platinum">Platinum</option>
-  </select>
-  <select id="statusFilter" aria-label="Filter by status">
-    <option value="">All trophies</option>
-    <option value="earned">Earned only</option>
-    <option value="unearned">Not earned yet</option>
-    <option value="missable">Missable only</option>
-  </select>
-  <button id="spoilerBtn" class="toggle on" type="button" aria-pressed="true">Spoiler Shield: ON (s)</button>
-  <button id="exportBtn" type="button">Export (e)</button>
-  <label class="import-label" for="importFile">Import</label>
-  <input id="importFile" type="file" accept="application/json" hidden>
-</nav>
-
-<nav class="tabs" role="tablist">
-  <button class="tab active" data-view="checklist" type="button" role="tab">1 &middot; Checklist</button>
-  <button class="tab" data-view="roadmap" type="button" role="tab">2 &middot; Roadmap to Platinum</button>
-  <button class="tab" data-view="missables" type="button" role="tab">3 &middot; Missables &middot; 21</button>
-  <button class="tab" data-view="disputes" type="button" role="tab">4 &middot; Disputes &middot; 7</button>
-</nav>
-
-<main>
-  <section id="view-checklist" class="view">
-    <div class="panes">
-      <div class="list-pane">
-        <div class="list-head"><span id="listCount">55 trophies</span><span id="listEarned">0 earned</span></div>
-        <ul id="trophyList" class="trophy-list"></ul>
-      </div>
-      <aside class="detail-pane" id="detailPane" aria-live="polite"></aside>
+<header class="top">
+  <div class="toprow">
+    <div>
+      <h1>Sunset Trophy Guide<span class="sub">GTA 6 Platinum Tracker · PS5 · 55 trophies</span></h1>
     </div>
-  </section>
-
-  <section id="view-roadmap" class="view hidden">
-    <h2>Roadmap to Platinum</h2>
-    <p class="lead">Play the story in chapter order, do the missables as you reach them, then clean up the free-roam trophies. Next Up is your next 5 unearned trophies in that order.</p>
-    <h3>Next Up &mdash; your next 5</h3>
-    <ol id="nextUp" class="nextup"></ol>
-    <h3>Chapters</h3>
-    <div id="roadmapChapters" class="chapters"></div>
-  </section>
-
-  <section id="view-missables" class="view hidden">
-    <h2>Missable trophies &mdash; 21 to watch</h2>
-    <p class="lead">These 21 trophies can be missed if the story or a one-time setup moves on. Do them the first time they appear. Anything not yet checked in-game is marked so in each guide.</p>
-    <h3>Points of no return &mdash; in chapter order</h3>
-    <ol id="pointsList" class="points-list"></ol>
-    <h3>All 21 missables</h3>
-    <ul id="missableList" class="trophy-list wide"></ul>
-  </section>
-
-  <section id="view-disputes" class="view hidden">
-    <h2>Disputes &mdash; where the sources disagree or stay silent</h2>
-    <p class="lead">An honest guide says where it is not sure. Each dispute below names the two sources that differ and its status. Nothing here is presented as confirmed when it is not.</p>
-    <div id="disputeList" class="disputes"></div>
-    <h3>Source sites used in this guide</h3>
-    <ul id="siteList" class="sites"></ul>
-  </section>
-</main>
-
-<footer>
-  <p>Sunset Trophy Guide — an offline guide. Trophy names, descriptions and grades are the official list (Exophase / PSNProfiles); the grade scheme is PlayStation's trophy system and the game is Grand Theft Auto VI by Rockstar Games. Guides are written in our own words; anything not yet checked in-game is marked &ldquo;belum dicek di dalam game&rdquo;. No Rockstar logo or official artwork. Progress is saved only in this browser (localStorage). Bounty: <a href="https://make.fun/bounty/gta6-trophy-guide-01">make.fun — Build the best GTA 6 trophy guide</a>.</p>
-</footer>
-
+    <div class="bigstats">
+      <div><div class="num" id="statEarned">0/55</div><div class="lab">Trophies earned</div></div>
+      <div><div class="num" id="statPct">0%</div><div class="lab">Platinum progress</div></div>
+      <div><div class="num" id="statPoints">0</div><div class="lab">PSN points</div></div>
+      <div><div class="num" id="statMiss">21</div><div class="lab">Missable windows</div></div>
+    </div>
+  </div>
+  <div class="progressbar"><i id="bar" style="width:0%"></i></div>
+</header>
+<div class="auditstrip" id="auditStrip">Loading audit…</div>
+<div class="toolbar">
+  <input type="search" id="q" placeholder="Search trophies…  ( / )" aria-label="Search trophies">
+  <select id="fGrade" aria-label="Filter by grade"><option value="">All grades</option><option value="platinum">Platinum</option><option value="gold">Gold</option><option value="silver">Silver</option><option value="bronze">Bronze</option></select>
+  <select id="fKind" aria-label="Filter by kind"><option value="">All kinds</option></select>
+  <select id="fStatus" aria-label="Filter by status"><option value="">All statuses</option><option value="earned">Earned</option><option value="todo">Not earned</option><option value="missable">Missable</option><option value="hidden">Hidden</option></select>
+  <button class="btn on" id="shieldBtn" title="Spoiler Shield (S)">🛡 Spoiler Shield: ON</button>
+  <button class="btn" id="exportBtn" title="Export progress (E)">Export</button>
+  <button class="btn" id="importBtn">Import</button>
+  <input type="file" id="importFile" accept="application/json" hidden>
+  <button class="btn" id="seedBtn">Seed demo 13/55</button>
+</div>
+<nav class="tabs" id="tabs">
+  <button data-tab="checklist" class="on">Checklist</button>
+  <button data-tab="roadmap">Roadmap &amp; Next Up</button>
+  <button data-tab="missables">Missables &amp; Points of No Return</button>
+  <button data-tab="disputes">Disputes</button>
+  <button data-tab="sources">Sources &amp; Audit</button>
+</nav>
+<main id="main"></main>
+<footer>Sunset Trophy Guide — GTA 6 Platinum Tracker. Offline static guide. Names, descriptions and grades are the official PS5 list (2026-11-18, via Exophase / PSNProfiles). Guides are written in our own words; anything not yet checked in-game is marked “belum dicek di dalam game”. No Rockstar artwork. Shortcuts: <b>/</b> search · <b>1</b> checklist · <b>2</b> roadmap · <b>3</b> missables · <b>S</b> spoiler shield · <b>E</b> export.</footer>
 <script src="app.js"></script>
 </body>
 </html>
