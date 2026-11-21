@@ -1,5 +1,6 @@
 // Tiny static server for app/ (Node 22, standard library only).
-// Run: node serve.ts [--port <n>] — serves app/ on http://localhost:8080 by default.
+// Run: node /home/hatch/workspace/trofi-senja-v4/serve.ts --port 8084
+// then open http://localhost:8084
 import { createReadStream, statSync } from 'node:fs';
 import { createServer } from 'node:http';
 import { extname, join, normalize, resolve, sep } from 'node:path';
@@ -14,11 +15,15 @@ const port = Number.isInteger(requested) && requested > 0 && requested < 65536 ?
 const MIME: Record<string, string> = {
   '.html': 'text/html; charset=utf-8',
   '.js': 'text/javascript; charset=utf-8',
+  '.mjs': 'text/javascript; charset=utf-8',
   '.css': 'text/css; charset=utf-8',
   '.json': 'application/json; charset=utf-8',
+  '.svg': 'image/svg+xml',
+  '.png': 'image/png',
   '.jpg': 'image/jpeg',
   '.jpeg': 'image/jpeg',
-  '.png': 'image/png',
+  '.webp': 'image/webp',
+  '.ico': 'image/x-icon',
 };
 
 createServer((request, response) => {
