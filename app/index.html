@@ -1,97 +1,98 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Trofi Senja — Panduan Platinum GTA 6</title>
-<link rel="icon" href="data:,">
+<title>Sunset Trophy Guide — GTA 6 Platinum Tracker</title>
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header class="top">
-  <div class="brand"><span class="sun">☀</span><div><h1>Trofi Senja</h1><p>Panduan Platinum GTA 6 &middot; PS5 &middot; 55 trofi resmi</p></div></div>
-  <div class="progress" id="progressBox">
-    <div class="big"><span id="earnedCount">0/55</span> <span id="platPct">0% ke Platinum</span></div>
-    <div class="bar"><div id="barFill"></div></div>
-    <div class="counts" id="gradeCounts">Platinum 0/1 &middot; Emas 0/2 &middot; Perak 0/6 &middot; Perunggu 0/46</div>
+  <div class="brand">
+    <h1>Sunset Trophy Guide</h1>
+    <p class="sub">GTA 6 Platinum Tracker &middot; Grand Theft Auto VI &middot; PS5 &middot; panduan offline</p>
   </div>
-  <div class="shield">
-    <label class="shieldToggle"><input type="checkbox" id="spoilerToggle" checked> <b>SPOILER SHIELD</b><span>Nama &amp; deskripsi trofi cerita tersembunyi sampai didapat</span></label>
-    <div class="shortcuts">Pintasan: <b>/</b> cari &middot; <b>1</b> checklist &middot; <b>2</b> roadmap &middot; <b>3</b> missables &middot; <b>s</b> spoiler &middot; <b>e</b> ekspor</div>
+  <div class="progress" id="progressBox">
+    <div class="big" id="progressText">0/55</div>
+    <div class="bar"><div id="progressFill"></div></div>
+    <div class="pct" id="progressPct">0%</div>
+  </div>
+  <div class="headbtns">
+    <button id="spoilerBtn" title="Spoiler Shield (s)">Spoiler Shield: ON</button>
+    <button id="exportBtn" title="Ekspor progres (e)">Ekspor</button>
+    <label class="importBtn">Impor<input type="file" id="importFile" accept="application/json" hidden></label>
   </div>
 </header>
-<div class="audit" id="auditStrip">Memuat audit&hellip;</div>
-<nav class="tabs" aria-label="Panduan">
-  <button data-view="checklist" class="active" id="tabChecklist">☑ Checklist 55 Trofi</button>
-  <button data-view="roadmap" id="tabRoadmap">🗺 Roadmap ke Platinum</button>
-  <button data-view="missables" id="tabMissables">⚠ Missables &amp; Titik Tanpa Jalan Kembali</button>
+<div class="audit" id="auditStrip">Memuat data trofi&hellip;</div>
+<nav class="tabs">
+  <button data-view="checklist" class="active">1 &middot; Checklist</button>
+  <button data-view="roadmap">2 &middot; Roadmap</button>
+  <button data-view="missables">3 &middot; Missables</button>
 </nav>
-<section class="controls">
-  <input id="search" type="search" placeholder="Cari trofi, misi, atau kata kunci…  ( / )" aria-label="Cari trofi">
-  <select id="gradeFilter" aria-label="Filter grade"><option value="">Semua grade</option><option value="platinum">Platinum</option><option value="gold">Emas</option><option value="silver">Perak</option><option value="bronze">Perunggu</option></select>
-  <select id="kindFilter" aria-label="Filter jenis"><option value="">Semua jenis</option><option value="story">Cerita</option><option value="missable">Bisa terlewat</option><option value="collectibles">Koleksi</option><option value="activities">Aktivitas</option><option value="exploration">Penjelajahan</option><option value="combat">Tempur</option><option value="money">Uang</option></select>
-  <select id="statusFilter" aria-label="Filter status"><option value="">Semua status</option><option value="earned">Sudah didapat</option><option value="todo">Belum didapat</option></select>
-  <button id="exportBtn">⬇ Ekspor JSON</button>
-  <label class="importBtn">⬆ Impor JSON<input type="file" id="importFile" accept="application/json" hidden></label>
-  <button id="resetBtn">Reset progres</button>
-</section>
-
-<main id="viewChecklist" class="view active">
-  <div class="pane listPane">
-    <h2>Checklist — <span id="listCount">55 trofi</span></h2>
-    <div id="trophyList" class="trophyList"></div>
-  </div>
-  <div class="pane detailPane" id="detailPane">
-    <p class="hint">Pilih satu trofi di kiri untuk melihat panduan, sumber, penghitung, dan catatan.</p>
-    <div id="detail"></div>
-  </div>
-  <aside class="pane nextPane">
-    <h2>Next Up — 5 berikutnya</h2>
-    <p class="muted">Urutan roadmap: cerita dulu, lalu yang bisa terlewat, lalu koleksi &amp; aktivitas.</p>
-    <ol id="nextUp" class="nextUp"></ol>
-    <h2>Penghitung PSN</h2>
-    <div id="counters" class="counters"></div>
-    <h2>Catatan audit</h2>
-    <p class="muted" id="auditNote">Setiap trofi mencantumkan sumbernya. Klaim tanpa sumber ditandai “belum dicek di dalam game”.</p>
-  </aside>
+<div class="toolbar">
+  <input id="search" type="search" placeholder="Cari trofi&hellip;  ( / )" autocomplete="off">
+  <select id="gradeFilter" aria-label="Filter grade">
+    <option value="">Semua grade</option>
+    <option value="platinum">Platinum</option>
+    <option value="gold">Emas</option>
+    <option value="silver">Perak</option>
+    <option value="bronze">Perunggu</option>
+  </select>
+  <select id="kindFilter" aria-label="Filter jenis">
+    <option value="">Semua jenis</option>
+    <option value="story">Cerita</option>
+    <option value="side">Sampingan</option>
+    <option value="activity">Aktivitas</option>
+    <option value="collection">Koleksi</option>
+    <option value="combat">Tempur</option>
+    <option value="exploration">Penjelajahan</option>
+    <option value="money">Uang</option>
+    <option value="platinum">Platinum</option>
+  </select>
+  <select id="statusFilter" aria-label="Filter status">
+    <option value="">Semua status</option>
+    <option value="earned">Sudah didapat</option>
+    <option value="unearned">Belum didapat</option>
+    <option value="missable">Bisa terlewat</option>
+  </select>
+</div>
+<main>
+  <section id="view-checklist" class="view active">
+    <div class="panes">
+      <div class="listpane">
+        <div class="listhead"><span id="listCount"></span></div>
+        <ul id="trophyList" class="tlist"></ul>
+      </div>
+      <aside class="detail" id="detailPane">
+        <p class="hint">Klik sebuah trofi untuk melihat panduannya di sini.</p>
+      </aside>
+    </div>
+  </section>
+  <section id="view-roadmap" class="view">
+    <div class="panes">
+      <div class="roadpane" id="roadmapPane"></div>
+      <aside class="sidepane">
+        <h2>Next Up</h2>
+        <p class="muted">5 trofi berikutnya yang belum didapat, sesuai urutan cerita.</p>
+        <ol id="nextUp" class="nextup"></ol>
+      </aside>
+    </div>
+  </section>
+  <section id="view-missables" class="view">
+    <div class="panes">
+      <div class="misspane" id="missablesPane"></div>
+      <aside class="sidepane">
+        <h2>Titik Tanpa Jalan Kembali</h2>
+        <p class="muted">5 momen cerita yang menutup kesempatan — urutan bab.</p>
+        <ol id="porList" class="por"></ol>
+      </aside>
+    </div>
+  </section>
 </main>
-
-<main id="viewRoadmap" class="view">
-  <div class="pane wide">
-    <h2>Roadmap ke Platinum — urutan bab &amp; misi</h2>
-    <p class="muted">Kerjakan dari atas ke bawah. Selesaikan kotak Missable di tiap bab sebelum melewati titik tanpa jalan kembali di bawahnya.</p>
-    <div id="roadmap"></div>
-  </div>
-  <aside class="pane">
-    <h2>Next Up — 5 berikutnya</h2>
-    <ol id="nextUp2" class="nextUp"></ol>
-    <h2>Kemajuan per bab</h2>
-    <div id="chapterProgress"></div>
-  </aside>
-</main>
-
-<main id="viewMissables" class="view">
-  <div class="pane wide">
-    <h2>Missables — trofi yang bisa terlewat</h2>
-    <p class="muted"><b>21 trofi bisa terlewat.</b> Semuanya ada kotaknya di detail trofi. Simpan manual di slot terpisah sebelum setiap titik di bawah ini.</p>
-    <div id="missableList"></div>
-  </div>
-  <aside class="pane">
-    <h2>Titik Tanpa Jalan Kembali — urutan bab</h2>
-    <ol class="ponr">
-      <li><b>Akhir Bab 1</b> — selesaikan misi Bab 1 &amp; mulai rangkaian orang asing.</li>
-      <li><b>Akhir Bab 2</b> — selesaikan Trust &amp; rangkaian Andy/Kenton/Billy.</li>
-      <li><b>Akhir Bab 3</b> — selesaikan Break the Bank, Family Matters &amp; rangkaian Bab 3.</li>
-      <li><b>Akhir Bab 4</b> — selesaikan DWNFALL, Hi-Jacked, Snow Storm &amp; Randy/Tyrone.</li>
-      <li><b>Sebelum misi akhir</b> — simpan di slot terpisah; pilihan akhir memengaruhi akhir cerita.</li>
-    </ol>
-    <p class="muted">Daftar titik ini disusun dari urutan bab resmi. Detail misi di dalam tiap bab belum dicek di dalam game.</p>
-  </aside>
-</main>
-
 <footer>
-  <p><b>Trofi Senja</b> — panduan asli dengan kata-kata sendiri. Nama, deskripsi &amp; grade dari daftar resmi 55 trofi (Exophase / daftar resmi, PSNProfiles untuk target hitungan PSN). Panduan di <a href="https://make.fun/bounty/gta6-trophy-guide-01">make.fun/bounty/gta6-trophy-guide-01</a> — data tersimpan di localStorage di perangkatmu, tidak dikirim ke mana pun. Offline: tanpa jaringan.</p>
+  <p>Data trofi resmi: daftar resmi GTA VI (Exophase). Target hitungan PSN: PSNProfiles. Panduan ditulis dengan kata-kata sendiri; langkah yang belum dicek di dalam game ditandai jelas. Tidak ada logo atau artwork resmi Rockstar. Semua data tersimpan di <code>localStorage</code> perangkatmu — tidak ada yang dikirim ke mana pun.</p>
+  <p>Dibuat untuk <a href="https://make.fun/bounty/gta6-trophy-guide-01">make.fun — Build the best GTA 6 trophy guide</a>.</p>
 </footer>
-<script type="module" src="app.js"></script>
+<script src="app.js"></script>
 </body>
 </html>
