@@ -1,8 +1,8 @@
 // Sunset Trophy Guide — entry program for the gta6-trophy-guide-01 bounty.
-// Node 22, standard library only. Copies app/ and screenshots/ next to this
-// file into the output directory (MAKEFUN_OUTPUT_DIR outside the grader,
-// /output inside it) and writes dossier.json there with the vendored
-// make.fun library. Run it as:
+// Node 22, standard library only. It copies app/ and screenshots/ next to
+// this file into the output directory (MAKEFUN_OUTPUT_DIR outside the
+// grader, /output inside it) and writes dossier.json there with the
+// vendored make.fun library. Run it as:
 //   mkdir -p out && MAKEFUN_OUTPUT_DIR=out node main.ts
 import { cpSync, existsSync, mkdirSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
